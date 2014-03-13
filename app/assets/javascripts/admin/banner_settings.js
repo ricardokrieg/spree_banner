@@ -1,18 +1,18 @@
 $(document).ready(function() {
 
-	$('.destroy_banner_style').live("click", function(e) {
-		e.preventDefault();
-		$(this).parent().remove();
-	});
+    $(document).on('click', '.destroy_banner_style', function(e) {
+        e.preventDefault();
+        $(this).parent().remove();
+    });
 
-	$('.destroy_new_banner_styles').live("click", function(e) {
-		e.preventDefault();
-		$(this).closest('.new_banner_styles').remove();
-	});
+    $(document).on('click', '.destroy_new_banner_styles', function(e) {
+        e.preventDefault();
+        $(this).closest('.new_banner_styles').remove();
+    });
 
   // Handle adding new styles
   var styles_hash_index = 1;
-  $('.add_new_banner_style').live("click", function(e) {
+  $(document).on('click', '.add_new_banner_style', function(e) {
     e.preventDefault();
     $('#new-banner-styles').append(generate_html_for_hash("new_banner_styles", styles_hash_index));
   });
