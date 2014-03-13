@@ -14,9 +14,9 @@ module Spree
                 Spree::BannerBox.enabled(params[:category]).order(:position).limit(params[:limit])
             end
 
-            return '' if banners.nil? or banners.empty?
+            banners = [banners] if banners.present? and banners.is_a?(Spree::BannerBox)
 
-            banners = [banners] unless banners.is_a?(Array)
+            return '' if banners.nil? or banners.empty?
 
             if params[:list]
                 content_tag :ul do
