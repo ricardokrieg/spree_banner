@@ -1,6 +1,6 @@
 module Spree
   class BannerBox < ActiveRecord::Base
-    attr_accessible :alt_text, :url, :category, :position, :enabled, :attachment
+    # attr_accessible :alt_text, :url, :category, :position, :enabled, :attachment
 
     has_attached_file :attachment,
                 :url  => "/spree/banners/:id/:style_:basename.:extension",
@@ -8,7 +8,7 @@ module Spree
                 :styles => lambda {|a|{
                   :mini => "48x48>",
                   :small => "100x100>",
-                  :large => "800x200#",
+                  :large => "800x200>",
                   :custom => "#{a.instance.attachment_width}x#{a.instance.attachment_height}#"
                 }},
                 :convert_options => { :all => '-strip -auto-orient' }
